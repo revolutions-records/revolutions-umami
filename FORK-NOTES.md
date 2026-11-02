@@ -51,6 +51,13 @@ This patch can be dropped if the project is switched to Git-integration deploys
 
 Added so CLI deploys skip `node_modules`, build output and local env files.
 
+### 3. `vercel.json` — declare the framework
+
+Added `"framework": "nextjs"`. The Vercel project was created with the CLI rather than
+imported from Git, so it had no framework detected and the first successful build was
+served as a static site: `public/script.js` returned 200 while every app route 404'd.
+Declaring it here keeps the setting in version control instead of only in project settings.
+
 ## Configuration
 
 Environment variables live on the Vercel project `revolutions-umami`
@@ -65,10 +72,3 @@ Environment variables live on the Vercel project `revolutions-umami`
 The database is the Neon project `revolutions-umami` (`autumn-violet-41021297`, `aws-us-east-1`),
 provisioned through the Vercel Neon marketplace integration. It is deliberately **separate**
 from the unrelated Kichma Umami instance and its database.
-
-### 3. `vercel.json` — declare the framework
-
-Added `"framework": "nextjs"`. The Vercel project was created with the CLI rather than
-imported from Git, so it had no framework detected and the first successful build was
-served as a static site: `public/script.js` returned 200 while every app route 404'd.
-Declaring it here keeps the setting in version control instead of only in project settings.
