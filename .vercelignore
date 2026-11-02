@@ -1,0 +1,14 @@
+# Keep .gitignore in the upload (Biome's vcs.useIgnoreFile needs it),
+# while still excluding build output and local artifacts.
+node_modules
+.next
+.vercel
+.git
+dist
+build
+coverage
+playwright-report
+test-results
+.env
+.env.*
+*.log
